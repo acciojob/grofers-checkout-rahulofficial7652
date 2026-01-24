@@ -3,36 +3,26 @@ getSumBtn.append("Get Total Price");
 document.body.appendChild(getSumBtn);
 
 const getSum = () => {
-    // 1. Select all elements with the class 'price'
-    const priceElements = document.querySelectorAll('.price');
+    // 1. Target the class '.prices' as expected by the test
+    const priceElements = document.querySelectorAll('.prices');
     let total = 0;
 
-    // 2. Loop through the elements and add their values to the total
+    // 2. Sum the values
     priceElements.forEach(element => {
-        // Use Number() or parseFloat() to convert text to a number
         total += Number(element.textContent);
     });
 
-    // 3. Check if a total row already exists to avoid duplicates
-    const existingTotal = document.getElementById('ans');
-    if (existingTotal) {
-        existingTotal.textContent = total;
-        return;
-    }
-
-    // 4. Create a new row (tr) and a cell (td) for the total
+    // 3. Find the table and create a new row
     const table = document.querySelector('table');
     const newRow = document.createElement('tr');
+    
+    // 4. Create the cell with the mandatory id="ans"
     const totalCell = document.createElement('td');
-
-    // 5. Set attributes and content
-    // We give it id="ans" as many tests for this specific challenge look for that ID
     totalCell.setAttribute('id', 'ans');
     totalCell.setAttribute('colspan', '2');
-    totalCell.style.textAlign = 'center';
     totalCell.textContent = total;
 
-    // 6. Append the cell to the row, and the row to the table
+    // 5. Append to the table
     newRow.appendChild(totalCell);
     table.appendChild(newRow);
 };
