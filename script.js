@@ -3,28 +3,29 @@ getSumBtn.append("Get Total Price");
 document.body.appendChild(getSumBtn);
 
 const getSum = () => {
-    // 1. Target the class '.prices' as expected by the test
-    const priceElements = document.querySelectorAll('.prices');
-    let total = 0;
+  // select all price cells
+  const priceElements = document.querySelectorAll(".price");
 
-    // 2. Sum the values
-    priceElements.forEach(element => {
-        total += Number(element.textContent);
-    });
+  let total = 0;
 
-    // 3. Find the table and create a new row
-    const table = document.querySelector('table');
-    const newRow = document.createElement('tr');
-    
-    // 4. Create the cell with the mandatory id="ans"
-    const totalCell = document.createElement('td');
-    totalCell.setAttribute('id', 'ans');
-    totalCell.setAttribute('colspan', '2');
-    totalCell.textContent = total;
+  priceElements.forEach((el) => {
+    total += Number(el.textContent);
+  });
 
-    // 5. Append to the table
-    newRow.appendChild(totalCell);
-    table.appendChild(newRow);
+  // check if total row already exists (avoid duplicates)
+  if (document.querySelector(".total-row")) return;
+
+  // create new row
+  const table = document.querySelector("table");
+  const totalRow = document.createElement("tr");
+  totalRow.className = "total-row";
+
+  const totalCell = document.createElement("td");
+  totalCell.colSpan = 2;
+  totalCell.textContent = `Total Price: Rs ${total}`;
+
+  totalRow.appendChild(totalCell);
+  table.appendChild(totalRow);
 };
 
 getSumBtn.addEventListener("click", getSum);
