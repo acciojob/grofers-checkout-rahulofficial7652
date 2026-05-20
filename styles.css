@@ -1,2 +1,60 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f6f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
 
-/* Your CSS Code here. */
+.checkout-container {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+th {
+    background-color: #2ecc71; /* Grofers green theme */
+    color: white;
+    font-weight: 600;
+}
+
+.item:hover {
+    background-color: #f9f9f9;
+}
+
+/* JavaScript se add hone wale Total Row ki styling */
+.total-row {
+    background-color: #eaeded;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+.total-row td {
+    border-top: 2px solid #2c3e50;
+    text-align: right; /* Total price right side me clear dikhe */
+    padding-right: 20px;
+}
